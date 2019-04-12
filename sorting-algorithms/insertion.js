@@ -29,3 +29,29 @@ now repeat for next unsorted element
 (https://en.wikipedia.org/wiki/Shellsort)
 
 */
+
+var insertionSort = function(unsorted) {
+	debugger;
+	
+	var sorted = [];
+
+	while (unsorted.length > 0) {
+		sorted.push(unsorted.shift());
+
+		for (let i = sorted.length-1; i > 0 ; i--) {
+			const element = sorted[i];
+			
+			if (sorted[i] < sorted[i-1]) { // doesn't swap if equal
+			sorted[i] = sorted[i-1];
+			sorted[i-1] = element;
+		} else {
+			break; // if it's equal or bigger than previous, it's in the right place; no need to compare with the rest
+		}
+	}
+}
+
+return sorted;
+}
+console.log(insertionSort([3,2,5,1,67,5,43]));
+// Time complexity: O(n²)
+// at best case scenario, O(n)

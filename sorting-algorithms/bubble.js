@@ -123,17 +123,18 @@ var bubbleSort = function(arr) {
 var cocktailSort = function (arr) {
 	let max;
 	let min;
-	let count = 0;
-
+	let count = 0; // big-o helper; how many times code was executed?
+	
 	for (let i = 1; i <= arr.length; i++) {
 		for (let n = 0; n < arr.length; n++) {
-			count++; // big-o helper; how many times it was executed?
+			// will swap max <-> end and min <-> start
+			count++;
 			console.log("i = " + i + ", n = " + n);
 			console.log("check: " + arr[n] + ">" + arr[n+1] + "?");
 			if (arr[n] > arr[n+1]) { // doesn't swap if equal
-				let temp = arr[n];
+				let bigger = arr[n];
 				arr[n] = arr[n+1];
-				arr[n+1] = temp;
+				arr[n+1] = bigger;
 				console.log("after: " + arr + "\n");
 			} else {
 				console.log("no swap\n");
@@ -148,5 +149,5 @@ var cocktailSort = function (arr) {
 // RUN
 bubbleSort([5,3,67,3,1,7]);
 
-// best case scenario
+// best case scenario - already sorted
 bubbleSort([ 1, 3, 3, 5, 7, 67 ]);
